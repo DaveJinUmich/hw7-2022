@@ -8,14 +8,14 @@ window.addEventListener("load", function() {
 	video.loop = false;
 	
 	// Set initial volume display
-	document.querySelector("#volume").textContent = Math.round(video.volume * 100) + "%";
+	document.querySelector("#volume").textContent = video.volume * 100 + "%";
 });
 
 // Play the video and update volume information
 document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play Video");
 	video.play();
-	document.querySelector("#volume").textContent = Math.round(video.volume * 100) + "%";
+	document.querySelector("#volume").textContent = video.volume * 100 + "%";
 });
 
 // Pause the video
@@ -27,13 +27,13 @@ document.querySelector("#pause").addEventListener("click", function() {
 // Slow down playback rate by 10%
 document.querySelector("#slower").addEventListener("click", function() {
 	video.playbackRate = video.playbackRate * 0.9; // Exactly 10% slower
-	console.log("New speed: " + video.playbackRate.toFixed(5));
+	console.log("New speed: " + video.playbackRate);
 });
 
 // Speed up playback rate proportionally
 document.querySelector("#faster").addEventListener("click", function() {
 	video.playbackRate = video.playbackRate / 0.9;
-	console.log("New speed: " + video.playbackRate.toFixed(5));
+	console.log("New speed: " + video.playbackRate);
 });
 
 // Skip ahead button - advance by 10 seconds or restart
@@ -66,8 +66,8 @@ document.querySelector("#mute").addEventListener("click", function() {
 document.querySelector("#slider").addEventListener("input", function() {
 	// Set the video volume (0-1 range)
 	video.volume = this.value / 100;
-	document.querySelector("#volume").textContent = Math.round(video.volume * 100) + "%";
-	console.log("Volume: " + video.volume.toFixed(2));
+	document.querySelector("#volume").textContent = video.volume * 100 + "%";
+	console.log("Volume: " + video.volume);
 });
 
 // Add the oldSchool class to video
