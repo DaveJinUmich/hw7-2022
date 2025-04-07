@@ -2,20 +2,19 @@ var video;
 
 // Initialize the video when the window loads
 window.addEventListener("load", function() {
-	console.log("Good job opening the window");
-	video = document.querySelector("#player1");
-	video.autoplay = false;
-	video.loop = false;
-	
-	// Set initial volume display
-	document.querySelector("#volume").textContent = video.volume * 100 + "%";
+    console.log("Good job opening the window");
+    video = document.querySelector("#player1");
+    video.autoplay = false;
+    video.loop = false;
+    document.querySelector("#volume").textContent = Math.round(video.volume * 100) + "%";
 });
 
 // Play the video and update volume information
 document.querySelector("#play").addEventListener("click", function() {
-	console.log("Play Video");
-	video.play();
-	document.querySelector("#volume").textContent = video.volume * 100 + "%";
+    console.log("Play Video");
+    video.play();
+    // Format the volume as a percentage with no decimal places
+    document.querySelector("#volume").textContent = Math.round(video.volume * 100) + "%";
 });
 
 // Pause the video
@@ -66,7 +65,7 @@ document.querySelector("#mute").addEventListener("click", function() {
 document.querySelector("#slider").addEventListener("input", function() {
 	// Set the video volume (0-1 range)
 	video.volume = this.value / 100;
-	document.querySelector("#volume").textContent = video.volume * 100 + "%";
+	document.querySelector("#volume").textContent = Math.round(video.volume * 100) + "%";
 	console.log("Volume: " + video.volume);
 });
 
