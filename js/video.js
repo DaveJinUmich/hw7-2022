@@ -6,7 +6,7 @@ window.addEventListener("load", function() {
     video = document.querySelector("#player1");
     video.autoplay = false;
     video.loop = false;
-    document.querySelector("#volume").textContent = Math.round(video.volume * 100) + "%";
+    document.querySelector("#volume").textContent = "100%";
 });
 
 // Play the video and update volume information
